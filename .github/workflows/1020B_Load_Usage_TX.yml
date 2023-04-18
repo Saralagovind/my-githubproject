@@ -4,6 +4,10 @@ on:
   workflow_call:
   
 jobs:
-runs-on: ubuntu-latest
-steps:
-echo "iam 1020B_Load_Usage_TX "
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+   
+    - name: reuse1
+      run: echo "iam 1020B_Load_Usage_TX"
