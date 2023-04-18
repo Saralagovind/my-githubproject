@@ -4,13 +4,7 @@ on:
   #push:
   #  branches: [ master ]
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-     - name: checkout code
-       uses: actions/checkout@v2
-     - name: hello
-       run: echo "sarala"
-     - name: run reusable workflow
+  
+  call-workflow-in-local-repo:
        uses: ./.github/workflows/reuse.yml
     
