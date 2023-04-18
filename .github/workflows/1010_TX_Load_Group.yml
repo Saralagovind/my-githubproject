@@ -5,6 +5,6 @@ on:
 jobs:
   call-workflow-in-local-repo:
        uses: ./.github/workflows/1020A_Load_Usage_TX.yml
-  #call-workflow-in-local-repo:
-   #    uses: ./.github/workflows/1020B_Load_Usage_TX.yml
+  call-workflow-in-local-repo1:
+       uses: ./.github/workflows/1020B_Load_Usage_TX.yml
        
