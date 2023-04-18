@@ -1,0 +1,13 @@
+name: my workflow
+on: push
+  branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    -name: checkout code
+    uses: actions/checkout@v2
+    -name: hello
+    -name: run reusable workflow
+    uses: .github/workflows@main
+    
