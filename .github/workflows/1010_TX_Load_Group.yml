@@ -3,8 +3,20 @@ on:
   workflow_dispatch:
   
 jobs:
-  call-workflow-in-local-repo:
-       uses: ./.github/workflows/1020A_Load_Usage_TX.yml
-  call-workflow-in-local-repo1:
-       uses: ./.github/workflows/1020B_Load_Usage_TX.yml
+  build:
+    runs-on: ubuntu-latest
+
+      call-workflow-in-local-repo:
+        uses: ./.github/workflows/1020A_Load_Usage_TX.yml
+      call-workflow-in-local-repo1:
+        uses: ./.github/workflows/1020B_Load_Usage_TX.yml
+        
+  deploy:
+  needs: build
+    runs-on: ubuntu-latest
+      call-workflow-in-local-repo:
+        uses: ./.github/workflows/1021_Load_Monitor_TX.yml
+    
+        
+        
        
