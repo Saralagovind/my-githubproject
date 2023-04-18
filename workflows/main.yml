@@ -1,0 +1,8 @@
+name: main
+on:
+  workflow_dispatch:
+  
+jobs:
+runs-on: ubuntu-latest
+steps:
+echo "::sarala"
