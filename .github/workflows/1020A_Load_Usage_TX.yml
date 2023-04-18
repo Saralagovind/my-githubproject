@@ -1,0 +1,11 @@
+name: 1020A_Load_Usage_TX
+on:
+  workflow_dispatch:
+  workflow_call:
+  
+jobs:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v2
+- name: reuse1
+  run: echo "iam 1020A_Load_Usage_TX"
