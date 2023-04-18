@@ -12,5 +12,5 @@ jobs:
      - name: hello
        run: echo "sarala"
      - name: run reusable workflow
-       uses: my-githubproject/workflows@main
+       uses: workflows@main
     
