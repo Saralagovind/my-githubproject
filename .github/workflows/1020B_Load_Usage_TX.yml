@@ -1,0 +1,9 @@
+name: 1020B_Load_Usage_TX
+on: 
+  workflow_dispatch:
+  workflow_call:
+  
+jobs:
+runs-on: ubuntu-latest
+steps:
+echo "iam 1020B_Load_Usage_TX "
