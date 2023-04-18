@@ -1,0 +1,9 @@
+name: 1010_TX_Load_Group
+on: 
+  workflow_dispatch:
+  
+jobs:
+  call-workflow-in-local-repo:
+       uses: ./.github/workflows/1020A_Load_Usage_TX.yml
+       uses: ./.github/workflows/1020B_Load_Usage_TX.yml
+       
