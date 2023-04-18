@@ -1,11 +1,13 @@
 name: reusable workflow
 on:
-  workflow_call
+  workflow_dispatch:
+  workflow_call:
  
 jobs:
-runs-on: ubuntu-latest
-steps:
- - uses: actions/checkout@v2
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
  
- - name: reuse
-   run: echo " iam reused one"
+    - name: reuse
+      run: echo " iam reused one"
