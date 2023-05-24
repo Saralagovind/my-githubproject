@@ -8,8 +8,9 @@ jobs:
     steps:
     - name: deploy-lock
       uses: github/lock@v2.0.1
+      id: lock
       with:
-        name: my-lock-name
+        mode: "lock"
         timeout-minutes: 10
         
   job1:
