@@ -12,8 +12,11 @@ jobs:
       uses: github/lock@v2.0.1
       id: lock
       with:
-        mode: "lock"
+        mode: check
         timeout-minutes: 10
+    - name: Print lock status
+      run: |
+          echo "Lock status: ${{ steps.lock.outputs.locked }}"
         
   job1:
     needs: lock
