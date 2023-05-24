@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Unlock
-      - uses: github/lock@v2
+      - uses: github/lock@v2.0.1
         id: lock
         with:
           mode: "unlock"
