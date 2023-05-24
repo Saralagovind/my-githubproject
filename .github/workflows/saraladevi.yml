@@ -1,5 +1,5 @@
 name: saraladevi
-
+concurrency: deploy
 on:
   workflow_dispatch:
     inputs:
