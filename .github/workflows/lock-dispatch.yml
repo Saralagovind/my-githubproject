@@ -28,3 +28,5 @@ jobs:
           mode: ${{ github.event.inputs.mode }}
           reason: ${{ github.event.inputs.reason }}
           environment: ${{ github.event.inputs.environment }}
+      - name: build
+        run: sleep 10s 
