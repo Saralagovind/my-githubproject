@@ -31,6 +31,7 @@ jobs:
      
         
   unlock:
+    needs: lock
     runs-on: ubuntu-latest
     steps:
       # Unlock
