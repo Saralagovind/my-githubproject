@@ -28,8 +28,8 @@ jobs:
           mode: ${{ github.event.inputs.mode }}
           reason: ${{ github.event.inputs.reason }}
           environment: ${{ github.event.inputs.environment }}
-      - name: build
-        run: sleep 50s 
+   #   - name: build
+    #    run: sleep 50s 
         
   unlock:
     runs-on: ubuntu-latest
