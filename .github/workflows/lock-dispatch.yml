@@ -5,7 +5,7 @@ on:
     inputs:
       reason:
         description: 'Reason for claiming the deployment lock'
-        required: false
+        required: true
       environment:
         description: 'The environment to claim a lock for (production, staging, etc) - global is supported to claim the special global lock)'
         required: true
