@@ -12,11 +12,11 @@ jobs:
       uses: github/lock@v2.0.1
       id: lock
       with:
-        mode: check
+        mode: "lock"
         timeout-minutes: 10
-    - name: Print lock status
-      run: |
-          echo "Lock status: ${{ steps.lock.outputs.locked }}"
+#     - name: Print lock status
+#       run: |
+#           echo "Lock status: ${{ steps.lock.outputs.locked }}"
         
   job1:
     needs: lock
@@ -33,6 +33,15 @@ jobs:
      - uses: actions/checkout@v2
      - name: build
        run: echo "hi"
+       
+  unlock:
+    runs-on: ubuntu-latest
+    steps:
+      # Unlock
+      - uses: github/lock@v2
+        id: lock
+        with:
+          mode: "unlock"
    
       
       
