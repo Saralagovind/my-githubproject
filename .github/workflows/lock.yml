@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: acquire lock
-      uses: JasonEtco/lock-action@v1
+      uses: github/lock@v2.0.1
       with:
         name: my-lock-name
         timeout-minutes: 10
