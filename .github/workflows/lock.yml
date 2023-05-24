@@ -1,0 +1,34 @@
+name: lock
+on:
+  workflow_dispatch:
+  
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    steps:
+    - name: acquire lock
+      uses: JasonEtco/lock-action@v1
+      with:
+        name: my-lock-name
+        timeout-minutes: 10
+        
+  job1:
+    needs: lock
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v2
+     - name: build
+       run: echo "hi"
+       
+  job2:
+     needs: lock
+     runs-on: ubuntu-latest
+     steps:
+     - uses: actions/checkout@v2
+     - name: build
+       run: echo "hi"
+   
+      
+      
+      
+      
