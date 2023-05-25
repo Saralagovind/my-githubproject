@@ -1,0 +1,30 @@
+name: test1
+on:
+  workflow_dispatch:
+# permissions:
+#   contents: write
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: acquire lock
+      id: lock
+      uses: actions/checkout@v2
+    - name: set lock
+      uses: actions/upload-artifact@v2
+      with:
+        name: lock
+        path: lock-file
+        
+  cleanup:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: download lock
+      uses: actions/download-artifact@v2
+      with:
+        name: lock
+        
+    - name: release lock
+      run: echo 'lock released'
