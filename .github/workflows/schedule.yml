@@ -1,0 +1,26 @@
+name: Schedule Failed Builds
+
+on:
+  workflow_dispatch:
+#   schedule:
+#     - cron: '0 0 * * *'  # Schedule runs at midnight every day
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run build
+        run: echo "ho"
+
+      - name: Check previous build status
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          if [[ "${{ github.workflow_run.conclusion }}" == 'failure' ]]; then
+            echo "Previous build failed. Scheduling a new build."
+            # Your command or script to trigger a new build goes here
+          else
+            echo "Previous build succeeded. Skipping new build."
+          fi
