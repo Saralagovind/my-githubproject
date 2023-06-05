@@ -32,7 +32,6 @@ jobs:
     needs: check-previous-build
     if: steps.check-build.outputs['check-build'] == 'true'
     runs-on: ubuntu-latest
-
     steps:
        - name: Checkout code
          uses: actions/checkout@v2
