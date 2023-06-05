@@ -13,14 +13,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run build
-        run: swa
+        run: echo "hi"
+      - name: failed
+        uses: nick-fields/retry@v2
+        with:
+         timeout_minutes: 10
+         max_attempts: 3
+         command: echo "hello"
 
-      - name: Check previous build status
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-        run: |
-          if [[ "${{ github.workflow_run.conclusion }}" == 'failure' ]]; then
-            echo "Previous build failed. Scheduling a new build."
-            # Your command or script to trigger a new build goes here
-          else
-            echo "Previous build succeeded. Skipping new build."
-          fi
+      
