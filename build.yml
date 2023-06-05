@@ -1,0 +1,41 @@
+name: Build
+on:
+  workflow_dispatch:
+#   schedule:
+#     - cron: "0 9 * * *"
+
+jobs:
+  check-previous-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check previous build status
+        id: check-build
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: runs } = await github.actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: context.workflow,
+              branch: context.ref
+            });
+            
+            const previousRun = runs.workflow_runs[0];
+            return previousRun.conclusion === 'failure';
+
+  run-failed-build:
+    needs: check-previous-build
+    if: steps.check-build.outputs['check-build'] == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+       - name: Checkout code
+         uses: actions/checkout@v2
+       - name: build
+         run: echo "hi"
+        
