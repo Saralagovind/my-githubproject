@@ -7,7 +7,7 @@ jobs:
 
     steps:
       - name: Execute script
-        run: echo " hi"
+        run: dfgh
  
   job2:
     if: success()
