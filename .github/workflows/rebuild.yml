@@ -9,8 +9,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       #  continue-on-error: true
-      - name: to check the previous run
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+#       - name: to check the previous run
+#         if: ${{ github.event.workflow_run.conclusion == 'success' }}
       - name: check previous build
         run: |
            curl -L \
