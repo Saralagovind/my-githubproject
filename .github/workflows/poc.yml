@@ -1,0 +1,28 @@
+name: poc
+on: 
+ workflow_dispatch:
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Execute script
+        run: echo " hi"
+ 
+  job2:
+    if: success()
+    needs: [job1]
+    
+    runs-on: ubuntu-latest
+    steps:
+     - name: script to be run
+       run: |
+        echo "I'm done"
+  job3:
+    if: failure()
+    needs: [job1]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Re-run
+        run: |
+         echo "re-run job"
