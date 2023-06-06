@@ -9,11 +9,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: check previous build
-        curl -L:
-          -H "Accept: application/vnd.github+json" \
-          -H "Authorization: Bearer <YOUR-TOKEN>"\
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-         https://api.github.com/repos/SARALAGOVIND/MY-GITHUBPROJECT/actions/workflows/${{github.run_id}}/runs
+        run: |
+           curl https://api.github.com
+           -H "Accept: application/vnd.github+json" \
+           -H "Authorization: Bearer <YOUR-TOKEN>"\
+           -H "X-GitHub-Api-Version: 2022-11-28" \
+             https://api.github.com/repos/SARALAGOVIND/MY-GITHUBPROJECT/actions/workflows/${{github.run_id}}/runs
 #         #gh api \
 #         -H "Accept: application/vnd.github+json" 
 #         -H "X-GitHub-Api-Version: 2022-11-28" \
