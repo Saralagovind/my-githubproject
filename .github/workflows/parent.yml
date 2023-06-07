@@ -5,15 +5,15 @@ on:
   workflow_call:
      
 jobs:    
-  jobA:
+  job1:
     uses: Saralagovind/my-githubproject/.github/workflows/job1.yml@master
       
-  jobB:
+  job2:
     if: failure()
    # needs: job2
     uses: Saralagovind/my-githubproject/.github/workflows/job2.yml@master
     
-  jobC:
+  job3:
     if: success()
   #  needs: job3
     uses: Saralagovind/my-githubproject/.github/workflows/job3.yml@master
