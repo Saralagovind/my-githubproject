@@ -1,0 +1,20 @@
+name: Workflow 2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run workflow 1 and get outputs
+        id: run_workflow1
+        uses: ./.github/workflows/workflow1.yml
+
+      - name: Use workflow 1 outputs
+        run: |
+          echo "The value of param1 is ${{ needs.run_workflow1.outputs.param1 }}"
