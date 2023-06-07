@@ -1,0 +1,19 @@
+name: parent
+  
+on:       
+  workflow_dispatch:
+  workflow_call:
+     
+jobs:    
+  jobA:
+    uses: Saralagovind/my-githubproject/.github/workflows/job1.yml@master
+      
+  jobB:
+    if: failure()
+   # needs: job2
+    uses: Saralagovind/my-githubproject/.github/workflows/job2.yml@master
+    
+  jobC:
+    if: success()
+  #  needs: job3
+    uses: Saralagovind/my-githubproject/.github/workflows/job3.yml@master
