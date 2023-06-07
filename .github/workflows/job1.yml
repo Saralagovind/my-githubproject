@@ -10,4 +10,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: step1
-        run: asdf
+        run: echo "hi"
+      - name: workflow status
+        id: status
+        run: echo "::set-output name=status::success"
+      
