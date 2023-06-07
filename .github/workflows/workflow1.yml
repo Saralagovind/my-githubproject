@@ -1,0 +1,16 @@
+name: Workflow 1
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set parameter
+        id: set_param
+        run: echo "::set-output name=param1::Sarala"
+      
+    outputs:
+      param1: ${{ steps.set_param.outputs.param1 }}
