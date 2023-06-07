@@ -13,7 +13,7 @@ jobs:
 
       - name: Run workflow 1 and get outputs
         id: run_workflow1
-        uses: ./.github/workflows/workflow1.yml
+        uses: Saralagovind/my-githubproject/.github/workflows/workflow1.yml@master
 
       - name: Use workflow 1 outputs
         run: |
