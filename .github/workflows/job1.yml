@@ -13,5 +13,5 @@ jobs:
         run: echo "hi"
       - name: workflow status
         id: status
-        run: echo "::set-output name=status::success"
+        run: echo "::set-output name=status::failure"
       
