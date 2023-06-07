@@ -1,11 +1,13 @@
 name: job3
 on:
-  workflow_dispatch:
-  workflow_call:
+  workflow_run:
+    workflows: ["job1"]
+    types:
+      - completed
 jobs:
-  job1:
+  build:
     runs-on: ubuntu-latest
-
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
