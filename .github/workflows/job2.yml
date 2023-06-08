@@ -2,8 +2,8 @@ name: job2
 on:
   workflow_run:
     workflows: ["job1"]
-    types:
-      - completed
+#     types:
+#       - completed
   
 jobs:
   build:
