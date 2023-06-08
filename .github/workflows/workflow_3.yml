@@ -1,7 +1,7 @@
-name: job3
+name: workflow_3
 on:
   workflow_run:
-    workflows: ["job1"]
+    workflows: ["workflow_1"]
     types:
       - completed
 jobs:
@@ -11,5 +11,5 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: job3
-        run: echo "hi"
+      - name: executing script
+        run: echo "job1 is failed so job3 executing "
