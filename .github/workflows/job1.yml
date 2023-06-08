@@ -10,7 +10,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: step1
-        run: ghfd
+        run: echo "hi"
   success_notification:
     needs: [job1]
     runs-on: ubuntu-latest
