@@ -10,7 +10,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: step1
-        run: sdgh
+        run: echo "sai"
   success_notification:
     needs: [job1]
     runs-on: ubuntu-latest
