@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: job2
-        run: echo "job1 is failed so job2 is executing "
+      - name: executing script
+        run: echo "job1 is success so job2 is executing "
