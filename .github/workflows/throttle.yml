@@ -1,11 +1,11 @@
 name: TestConcurrency
-concurrency: single
+concurrency: <1>
 #       group: my-concurrency
 #       cancel-in-progress: false
 on:  
   workflow_dispatch:
 jobs:
   sample:
-    runs-on: [self-hosted, linux ]
+    runs-on: ubuntu-latest
     steps:
       - run : echo "Hello"
