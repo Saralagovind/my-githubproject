@@ -1,0 +1,11 @@
+name: TestConcurrency
+concurrency: single
+#       group: my-concurrency
+#       cancel-in-progress: false
+on:  
+  workflow_dispatch:
+jobs:
+  sample:
+    runs-on: [self-hosted, linux ]
+    steps:
+      - run : echo "Hello"
