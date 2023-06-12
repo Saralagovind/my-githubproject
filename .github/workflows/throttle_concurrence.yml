@@ -8,16 +8,29 @@ jobs:
     steps:
      - name: Checkout code
        uses: actions/checkout@v2
-     - name: Acquire lock
-       id: lock
+     - name: Create lock
        run: |
-          if [ -f .lock ]; then
-            echo "Lock file exists, waiting for the lock to be released..."
-            while [ -f .lock ]; do
-              sleep 5
-            done
-          fi
-          touch .lock
+        touch lock.txt
+     - name: Check lock
+       id: check_lock
+       run: |
+         if [ -f lock.txt ]; then
+         echo "::set-output name=lock::true"
+         else
+         echo "::set-output name=lock::false"
+         fi
+     - name: Exit if locked
+       run: |
+         if [[ "${{ steps.check_lock.outputs.lock }}" == "true" ]]; then
+         echo "Job is already running. Exiting..."
+         exit 0
+         fi
+     - name: Remove lock
+       run: |
+        rm -f lock.txt
+
+
+
      - name: run the script
        run: echo " hi"
      - name: Release lock
