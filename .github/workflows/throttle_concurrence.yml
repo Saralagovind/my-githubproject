@@ -1,0 +1,28 @@
+name: throttle_concurrence
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout code
+       uses: actions/checkout@v2
+     - name: Acquire lock
+       id: lock
+       run: |
+          if [ -f .lock ]; then
+            echo "Lock file exists, waiting for the lock to be released..."
+            while [ -f .lock ]; do
+              sleep 5
+            done
+          fi
+          touch .lock
+     - name: run the script
+       run: echo " hi"
+     - name: Release lock
+       run: rm -f .lock
+
+       
+       
+        
