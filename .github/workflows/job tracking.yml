@@ -1,0 +1,25 @@
+name: Job Tracking
+
+on:
+  repository_dispatch:
+    types:
+      - job-request
+
+jobs:
+  track-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Job Status
+        id: job_status
+        run: |
+          # Check if a job is already running
+          # Update status based on the result
+          echo "::set-output name=can_dispatch::true"
+
+      - name: Dispatch Job
+        if: steps.job_status.outputs.can_dispatch == 'true'
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: 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
+          repository: Saralagovind/my-githubproject
+          event-type: job-request
