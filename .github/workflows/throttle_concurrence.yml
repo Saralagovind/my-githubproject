@@ -10,11 +10,11 @@ jobs:
        uses: actions/checkout@v2
      - name: Create lock
        run: |
-        touch lock.txt
+        touch my-githubproject/.github/workflows/file1.txt
      - name: Check lock
        id: check_lock
        run: |
-         if [ -f lock.txt ]; then
+         if [ -f my-githubproject/.github/workflows/lock.txt ]; then
          echo "::set-output name=lock::true"
          else
          echo "::set-output name=lock::false"
@@ -25,17 +25,15 @@ jobs:
          echo "Job is already running. Exiting..."
          exit 0
          fi
+     - name: run the script
+       run: echo "hi"
      - name: Remove lock
        run: |
-        rm -f lock.txt
+        rm -f my-githubproject/.github/workflows/file1.txt
 
 
 
-     - name: run the script
-       run: echo " hi"
-     - name: Release lock
-       run: rm -f .lock
-
+     
        
        
         
