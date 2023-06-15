@@ -1,0 +1,19 @@
+name: push_file
+on:
+  workflow_dispatch:
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: step1
+        run: echo "hi"
+      - name: push file to repo
+        run: |
+           git config --global user.name "Saralagovind"
+           git config --global user.email "saraladevigovind@gmail.com"
+           git add Saralagovind/my-githubproject/.github/workflows/file.txt
+           git commit -m "add file via workflow"
+           git push
