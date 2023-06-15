@@ -12,6 +12,7 @@ jobs:
         run: echo "hi"
       - name: push file to repo
         run: |
+           touch file.txt
            git config --global user.name "Saralagovind"
            git config --global user.email "saraladevigovind@gmail.com"
            git add Saralagovind/my-githubproject/.github/workflows/file.txt
