@@ -2,9 +2,9 @@ name: My Workflow
 
 on:
   workflow_dispatch:
-#   push:
-#     branches:
-#       - main
+  push:
+    branches:
+      - main
 
 jobs:
   my-job:
