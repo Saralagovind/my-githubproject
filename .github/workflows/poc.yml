@@ -23,6 +23,6 @@ jobs:
     needs: [job1]
     runs-on: ubuntu-latest
     steps:
-      - name: Re-run
+      - name: Run the script
         run: |
-         echo "re-run job"
+         echo " hello "
